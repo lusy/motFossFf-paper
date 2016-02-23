@@ -1,0 +1,60 @@
+\documentclass{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[normalem]{ulem}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{lmodern} % bessere Schrift für PDFs
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{natbib}
+%\usepackage{bibgerm}
+\usepackage{comment}
+\usepackage{tipa}
+\usepackage{gb4e}
+%\usepackage{lipsum} % Nur zum Auffüllen von Text
+
+% add subdirectory for images
+\graphicspath{{figures/}}
+
+
+\clubpenalty=10000
+\widowpenalty=10000
+
+% neue Absatz wird mit Leerzeile begonnen:
+\parindent 0pt
+\parskip 12pt
+
+\title{Out of Altruism or Because it Reads Good on the CV?: A Comparison of the Motivations for Participation in the FOSS and Freifunk Communities}
+\author{L V}
+
+\date{\today}
+
+\begin{document}
+
+\thispagestyle{empty}
+\maketitle
+
+\pagenumbering{gobble}
+\thispagestyle{empty}
+\clearpage\mbox{}\clearpage
+%\thispagestyle{empty}
+\newpage
+
+\pagenumbering{arabic}
+\include{0-Abstract}
+\include{1-Intro}
+\include{2-Basics}
+\include{3-Methodology}
+\include{4-FOSS}
+\include{5-Freifunk}
+\include{X-Conclusion}
+
+\nocite{*}
+
+\bibliography{literature}
+\bibliographystyle{alpha}
+
+
+\end{document}
