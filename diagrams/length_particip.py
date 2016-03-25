@@ -8,8 +8,8 @@ colors = ('#ff8080', '#ff4d4d', '#cc0000', '#990000')
 #def format_part (x, i):
 #    return data[i]
 
-#plt.pie(data, labels=labels, colors=colors, autopct=lambda x, i: data[i])
-plt.pie(data, labels=labels, colors=colors)
+plt.pie(data, labels=labels, colors=colors, autopct=lambda x: '{:.0f}'.format(x * sum(data)/100))
+#plt.pie(data, labels=labels, colors=colors)
 plt.axis('equal')
 #plt.axes(aspect=1)
 
