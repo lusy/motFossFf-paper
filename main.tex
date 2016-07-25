@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[normalem]{ulem}
-\usepackage[english]{babel}
+\usepackage[british]{babel}
 \usepackage{amsmath}
 \usepackage{lmodern} % bessere Schrift für PDFs
 \usepackage{graphicx}
@@ -11,13 +11,13 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{natbib}
-%\usepackage{bibgerm}
 \usepackage{comment}
 \usepackage{tipa}
-%\usepackage{gb4e} %linguistic tools
-%\usepackage{lipsum} % Nur zum Auffüllen von Text
 \usepackage{enumitem}
 \usepackage{hyperref} % allow for including clickable urls in bib and text
+\usepackage{footnote} % following 2 allow footnotes in tables
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
 
 % add subdirectory for images
 \graphicspath{{figures/}}
@@ -31,8 +31,6 @@
 \parskip 12pt
 
 \title{Out of Altruism or Because it Reads Well on the CV?: The Motivations for Participation in the Freifunk Community Compared to FLOSS}
-%\title{Out of Altruism or Because it Reads Good on the CV?: A Comparison of the Motivations for Participation in the FOSS and Freifunk Communities}
-%\title{Out of Altruism or Because it Reads Good on the CV?: What Drives Free Networks Activists to Action Compared to FOSS Participants}
 \author{L V}
 
 \date{\today}
