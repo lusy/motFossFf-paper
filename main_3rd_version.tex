@@ -1,0 +1,444 @@
+\documentclass{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[normalem]{ulem}
+\usepackage[british]{babel}
+\usepackage{amsmath}
+\usepackage{lmodern} % bessere Schrift für PDFs
+\usepackage{graphicx}
+\usepackage{caption} % following 2 needed for subfigures
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{natbib}
+\usepackage{comment}
+\usepackage{tipa}
+\usepackage{enumitem}
+\usepackage{hyperref} % allow for including clickable urls in bib and text
+\usepackage{footnote} % following 2 allow footnotes in tables
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
+
+% add subdirectory for images
+\graphicspath{{figures/}}
+
+
+\clubpenalty=10000
+\widowpenalty=10000
+
+% neue Absatz wird mit Leerzeile begonnen:
+\parindent 0pt
+\parskip 12pt
+
+\title{Out of Altruism or Because it Reads Well on the CV?: The Motivations for Participation in the Freifunk Community Compared to FLOSS}
+\author{L V}
+
+\date{\today}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	TITLE, TABLE OF CONTENTS, ...
+%----------------------------------------------------------------------------------------
+\thispagestyle{empty}
+\maketitle
+
+\setcounter{tocdepth}{2} % Set the depth of the table of contents to show sections and subsections only
+
+\tableofcontents % Print the table of contents
+%\pagenumbering{gobble}
+%\thispagestyle{empty}
+%\clearpage\mbox{}\clearpage
+
+%\thispagestyle{empty}
+\newpage
+
+\pagenumbering{arabic}
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\section*{Abstract} % This section will not appear in the table of contents due to the star (\section*)
+  Motivation of free, libre and open source software developers has been widely studied over the years.
+  The reasons people engage in this seemingly altruistic behavior have been elaborated and classified.
+  The present work addresses a slightly different issue:
+  what motivates individuals to participate in community network projects?
+  Are the reasons similar to or quite distinct from these relevant to contributors to free software?
+  Based on recently conducted interviews with community network activists from the Germany based project Freifunk and established FLOSS motivation research, we will analyse the specifics of the Freifunk project and the factors which spur its members to action.
+  The obtained insights could then hopefully be used to understand the underlying group processes and help build sustainable communities.
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\newpage
+\section{Introduction}
+
+In today's fast-paced world, free access to means of communication and information should be considered a fundamental human right.
+Unfortunately, in the majority of cases this right is very far from being truly granted.
+Most of the communications' channels are either state- or industry-owned and governed, putting exchange of knowledge and news at the mercy of these actors.
+Freedom of speech, the work of human rights advocates and privacy of communication depend on the good will of the infrastructure owners.
+
+In the past couple of decades, a number of grassroots projects has arisen which try to counteract the situation.
+The community network movements have set themselves the goal of building a communication infrastructure owned and controlled by its users.
+Understanding why activists engage in these projects can give them key insights into the inner workings of the corresponding projects and help them building a sustainable community, allow them to improve their processes, and encourage new people to participate.
+
+However, there is scarcely any academic work which investigates the reasons why people partake of community networks.
+Parting from research on a seemingly related topic: the motivation of free, libre and open source software developers, the present paper aims to outline some first impressions on the motivation of community network activists.
+
+%----------------------------------------------------------------------------------------
+%	BASICS
+%----------------------------------------------------------------------------------------
+
+\section{Basics}
+\subsection{FLOSS}
+Free, Libre and Open Source Software and the corresponding community are centered around the idea that source code should be open and freely accessible.
+What is more, according to the Free Software Movement,
+some fundamental freedoms such as studying the way a program works, running it for any purpose, distributing copies of it, modifying the code and distributing copies of the modified version should be granted\cite{gnuweb}.
+
+
+\subsection{Community networks \& the Freifunk project}
+Slightly less clear is perhaps what is meant by the term ``community networks''.
+%We'll concentrate on the definition by..
+These constitute a free, decentralised communication infrastructure built and controlled by civil society.
+Since the hardware is not in the hands of the state or any business players, they cannot exercise any censure over the contents spread over it. %control/censure
+The majority of the community network projects build upon wireless technologies because of their cheap cost and the permissive legal regulations\cite{WNDW2013}\cite{Medosch2004}.
+Many of them aim for creating mesh networks where the data is routed in a decentralised manner and direct data exchange between immediate neighbors is possible.
+This architecture brings reliability and redundancy, allowing for robust bottom-up networks\cite{Medosch2004}.
+A lot of projects also involve the development of free software---the router firmware, although that is not an inherent characteristic of all of them.
+Further specifics are the free and anonymous access to the network for anybody with a wifi capable device and the transfer of data within the network without its tampering, inspection or prioritising\cite{ffweb}\cite{Medosch2004}. %specifics/essentials/key points
+
+Freifunk is one particular example of a community network project.
+It was selected as primary focus for the current research because it consists of local communities spread throughout Germany, so the author had a direct contact with the activists.
+Although there are an aspiration for cooperation and some degree of coordination, the single communities are to great extent autonomous, each of them organised in its own manner.
+Apart from the political idea of a decentralised mesh network owned by its users and maintainers, guiding principles to which all Freifunk communities are committed are: reducing the digital divide, empowering people and creating awareness on communication and freedom of information\cite{ffweb}.
+
+\subsection{Community networks and FLOSS in comparison}\label{subsec:comparison}
+There are some similarities but also some key differences between both domains and their corresponding activities. %associated/corresponding
+Whereas the work of the FLOSS community concentrates around a digital artefact, the work of community network activists extends well beyond that.
+Some community network projects, among them Freifunk, develop their own free firmware (most of them based on OpenWRT), but this is only one of the activities in which Freifunkers engage.
+Further tasks include:
+\begin{itemize}
+  \item on-site installation (we note: hardware costs are involved),
+  \item network maintenance,
+  \item as well as spreading the idea and convincing new people to participate and extend the network, grant the project access to key locations for antenna installation (high buildings, rooftops) or contribute funds. %funds/financial support
+\end{itemize}
+
+\subsection{Motivation}\label{subsec:motivation}
+``To be motivated means to be moved to do something''~\cite{RyDe2000}.
+According to well-established psychological research, motivation can be roughly classified into two categories:
+intrinsic, which denominates the impulse to engage in an activity that is by itself interesting and/or entertaining,
+and extrinsic, where some kind of external punishment or reward is involved.
+Often, the second type of motivation is presented as less valid and producing poorer results. %(impoverished and less effective)
+However, extrinsic motivation is hardly a homogeneous category, but should instead be viewed as a continuum where productivity and satisfaction expand with increasing feelings of competence, autonomy and relatedness to others~\cite{RyDe2000}.
+The psychologists Ryan and Deci open several subcategories within the extrinsic motivation ranging from acting for the sake of an expected future reward over expecting an approval from self or others to consciously valuing an activity and identification with a community and its goals~\cite{RyDe2000}.
+The motivations of participants in the Freifunk community network project are investigated within this framework and compared to some of the results of the surveys on motivation in FLOSS conducted by Lakhani and Wolf in 2005~\cite{LakWo2005} and Hars and Ou in 2002~\cite{HarOu2002}.
+
+%----------------------------------------------------------------------------------------
+%	METHODOLOGY
+%----------------------------------------------------------------------------------------
+\section{Methodology}
+
+Due to the gap in the scientific literature on motivation in community network projects, primary field research in the form of semi-structured interviews was conducted.
+The questions for the interviews were inspired by the questionnaires applied by scientists investigating the FLOSS motivations\cite{HarOu2002}\cite{LakWo2005} and complemented by questions the author considered relevant or insightful.
+The interviews were conducted in person (all but one of them, which was conducted using a common VoIP software) and were not recorded and transcribed, but instead, foundation for the present paper form the extensive notes taken by the author.
+Such approach poses certain limitations, nevertheless, it was considered a quick and useful way to gain some first impressions on the wide variety of reasons which spur community network activists.
+
+Sixteen interviews were conducted in that manner over a period of two months in the beginnings of 2016.
+The raw data gathered during the interviews can be consulted on github\cite{FFInterviews} (in German).
+Some demographic information about the participants is summarised in Figure~\ref{fig:demography}.
+
+The applied questionnaire consists of two parts: one more general, where the participants were expected to provide some background information and share their experiences and views on the project, and one more specific, where they were prompted to explain whether or not certain factors were part of their motivation to engage in Freifunk.
+The answers are discussed in the following section.
+All the questions as well as the answers to the specific part can be viewed in the appendix.
+
+\subsection{Threats to validity}
+Beside the above mentioned methodological limitations,
+another critical issue that should be noted here are the publication dates of the FLOSS reference papers.
+Both papers researching motivation in the FLOSS communities~\cite{HarOu2002}~\cite{LakWo2005} are over ten years old, which leaves us doubting to what extend their findings are still valid today.
+However, the author was unable to find more recent investigations dealing precisely with the motivation of participants in the FLOSS community in the same fashion the chosen papers do.
+Therefore, the comparison is carried out as described, still, we should bear in mind that a present survey may provide quite different results and that people's motives changes over time.
+\\
+
+\begin{figure}[h]
+  \begin{subfigure}[h]{\textwidth}
+    \centering
+    \begin{tabular}{ l | r }
+      \hline
+      \textbf{community} & \textbf{members}\\
+      \hline
+      Berlin & 9 \\
+      %\hline
+      Rheinland & 3 \\
+      %\hline
+      Bielefeld & 1 \\
+      %\hline
+      Bremen & 1 \\
+      %\hline
+      Hamburg & 1 \\
+      %\hline
+      Hannover & 1 \\
+      \hline
+    \end{tabular}
+  \caption{Survey participants according to their community}
+  \label{tab:communities}
+  \end{subfigure}
+  \qquad
+  \begin{subfigure}[h]{0.45\textwidth}
+    %\centering
+    \includegraphics[scale=0.3]{diagrams/gender_py.png}
+    \caption{Perceived participants' gender}
+    \label{fig:gender}
+  \end{subfigure}
+  \qquad
+  \begin{subfigure}[h]{0.45\textwidth}
+    \centering
+    \includegraphics[scale=0.3]{diagrams/length_particip_num.png}
+    \caption{Length of involvement}
+    \label{fig:length}
+  \end{subfigure}
+  \caption{Participants' demographics}
+  \label{fig:demography}
+\end{figure}
+
+%----------------------------------------------------------------------------------------
+%	FREIFUNK
+%----------------------------------------------------------------------------------------
+
+\section{Motivations in the Freifunk Community}
+%TODO: Rename section to "Findings"?
+
+\begin{comment}
+\begin{itemize}
+  \item is the focus of the paper;
+  \item only pull up the foss motivations as comparison to underline similarities and differences with the findings here
+  \item general part of the questionnaire $\rightarrow$ cluster answers
+  \item some graphs/tables on the specific questions
+\end{itemize}
+\end{comment}
+
+Leaning on the intrinsic--extrinsic motivation continuum outlined in Section~\ref{subsec:motivation} the reasons for the interviewees to engage in the Freifunk project can be loosely organised in the following clusters.
+
+%\subsection{Intrinsic Motivation}
+\textbf{Intrinsic Motivation}
+%-- it's fun to climb roofs and get to see the city from above; to help develop the firmware; ...
+%-- interest, enjoyment, inherent satisfaction
+
+%technical challenge/fun (intrinsic)
+As explained, intrinsic motivation denominates the willingness of people to engage in an activity they find interesting and enjoyable by itself.
+Most participants in the interviews seem to enjoy tinkering with networks and say they engage in the project because of the technical challenge.
+14 (out of 16) people mentioned this aspect in some form.
+An activist noted that they found the Freifunk project more tangible and consequently more enjoyable than software development.
+Another one spoke with eagerness of the challenge to produce maximal results with minimal resources.
+Yet another referred enthusiastically to the otherwise scarce opportunities to climb on church and townhall towers and to enjoy the view both inside the old buildings and over the rooftops of the city during antenna installations.
+
+% project is inherently exciting (intrinsic)
+The wish to do interesting and meaningful things in one's leisure time was also stated as a motive to turn to Freifunk.
+The participants looked for a project where they could apply their knowledge and experience in their own creative manner without the demands of hierarchies and bosses.
+The size of the project, the diversity of tasks involved and consequently the possibility to engage in different activities was also appealing to the activists.
+
+%compare to foss: enjoyable activity, intrinsic motivation
+The interest in the activity at hand and inherent satisfaction is an important and often named motivation for FLOSS developers, although both consulted surveys on FLOSS motivation found that it was not the primary reason for people to contribute~\cite{HarOu2002},~\cite{LakWo2005}.
+%As sketched in Section~\ref{subsec:comparison}, we can also assert that the range of possible tasks in FLOSS development is not as diverse as in a community network project.
+
+%TODO:
+%Hars and Ou:
+%16% rated high on altruism
+
+%\subsection{Extrinsic Motivation: ideology}
+\textbf{Extrinsic Motivation: ideology}
+
+According to Ryan and Deci, if individuals act out of conviction, because they identify with a certain set of values, we are presented with extrinsic motivation, but one where self-determination is strong and consequently the motivation itself is it as well~\cite{RyDe2000}.
+Due to its high degree of self-determination both FLOSS papers we are using as a reference actually view this and the following class as part of the intrinsic motivation~\cite{LakWo2005},~\cite{HarOu2002}.
+As already stated in Section~\ref{subsec:motivation} however, we regard motivation as a continuum rather than discrete categories and thus a rigorous categorisation is beyond the purpose of the current discussion.
+
+%FLOSS
+It appears that identification with the FLOSS ideology is indeed important for some participants in FLOSS projects, although not to the extent one might have expected (Lakhani and Wolf find this to be driving force for approximately one-third of their participants~\cite{LakWo2005}).
+
+% political motivation (extrinsic? values, community)
+For the majority of the interviewees in the Freifunk survey however, the political aspect of the project seemed to play a very central role.
+Many of them mentioned on their own that the idea of a decentralised, non-hierarchical and non-commercial communication was one of the fundamental motives which drove them to engage in the project in the first place.
+They spoke of ``a right to free communication and information''\footnote{The interviews were conducted in German. Here mentioned citations have been translated by the author. The author carries responsibility and apologises for any inaccuracies.}
+and sovereignty which can only be truly granted if people build their own infrastructure and organise its operation in such a manner that no single person is able to shut it down.
+When prompted by one of the specific questions (see Appendix), all participants agreed that it was important to build a free communication infrastructure controlled by civil society and not by the state or influential business players.
+
+At the same time, several activists expressed their regrets that unfortunately their vision didn't scale technically.
+They were also concerned that it was not easy to explain and propagate these ideas outside of the community: people didn't always seem to understand or care for informational self-determination.
+It was not until the media started to cover Freifunk's engagement in connecting refugee shelters throughout Germany to the Internet, that the concept seemed to become somewhat clearer and more present for mainstream society.
+Moreover, community members complained of the service mentality of some users who appeared to view Freifunk as yet another service provider and not to understand its essence as an emancipatory hands-on project, which after a period of time tended to drive contributors away.
+Then again, there were also participants who feared that the Freifunk community didn't try hard enough to engage and be open to folks with non-technical background.
+
+%\subsection{Extrinsic Motivation: feeling part of a community/community obligation}
+\textbf{Extrinsic Motivation: feeling as a part of a community}
+%Working for free... classifies that as Intrinsic motivation
+%Why hackers do... too
+
+Another type of extrinsic motivation closely related to the previous one is community affiliation.
+Some $28\%$ of the interviewed by Hars and Ou were found to identify strongly with the FLOSS community~\cite{HarOu2002}.
+Same was true for $83\%$ of the participants in the Lakhani-Wolf survey~\cite{LakWo2005}.
+
+% feeling part of a community
+Several Freifunk activists mentioned the community aspect of their work, the feeling of belonging to a community they admired, as a driving force.
+They talked about ``building a project together with others''
+, ``collaborating with and getting to know people of different ages and backgrounds, which would have hardly happened in a different setting'' and ``expanding one's horizons and getting out of one's comfort zone''.
+We can recognise here the ``relatedness to others'' component from the motivations' research which apparently drives individuals to internalising the activity they engage in~\cite{RyDe2000}.
+
+% * "technisch interessant --> Schnittstelle zwischen Community und Technik"
+Some found the intersection of community and technology was the most interesting part of the Freifunk project.
+Finding out how it works (or does not work) to organise a community, what volunteer work means, what people do with pleasure and which tasks get ignored and forgotten and why, who has the power to decide things and whether it is necessary to debate and formulate decisions for everything, and most importantly, how to involve newcomers so that the project does not fall apart and how to prevent and deconstruct hierarchies in knowledge are only few of the interesting questions with which activists have to deal.
+One of the participants, who has been working on the project from the very beginning, spoke with enthusiasm about how big the community had become.
+
+% sharing knowledge (values, community) + criticism that it is not enough
+Curiously, only two people named as motivation sharing knowledge, empowering others to build their own infrastructure and educating them about the setup and workings of (mesh-) networks, as well as aspects such as their inherent security, privacy and neutrality, although these are among the central goals sketched by the community in their self-conception\cite{ffweb}.
+What is more, these same individuals expressed their concern that these ideas didn't seem to be addressed sufficiently within the community.
+They criticised the fact that despite the ideological intention to maintain horizontal structures, community members did tend to eventually build up (knowledge) hierarchies and that in some cases decisions were driven more by the egos of particular participants rather than by the self-proclaimed principles of the project.
+It was also remarked that although unintentionally, due to uneven knowledge distribution and available time, often it were only few people who ended up taking care of major parts of the network which both contradicted the principles and led to significant workloads and burnouts for these individuals.
+The skewed gender distribution of participants was also cited as a problem the community needed to address.
+
+\begin{comment}
+% an event gave the initial impulse
+Many of the interviewed only started to actively participate in Freifunk after attending some kind of event: be it a local community meeting, meeting activists at the Chaos Communication Congress or other kinds of conferences.
+%TODO: also part of community?? or in general: personal communication is what actually spurs people into action?
+\end{comment}
+
+%\subsection{Extrinsic Motivation: Ego Involvement, expected approval from self or others}
+\textbf{Extrinsic Motivation: expected approval from self or others}
+%peer recognition
+%Why hackers do... classify that as intrinsic motivation
+
+Both FLOSS reference surveys mention this aspect, however, they disagree on whether it is a type of intrinsic~\cite{LakWo2005} or extrinsic~\cite{HarOu2002} motivation.
+As already explained, it is more important for us what their participants shared than how exactly to classify the observations.
+They found that some $11\%$ of the interviewed wanted to enhance their reputation within the FLOSS community~\cite{LakWo2005}, or respectively, that $43\%$ strived for peer recognition~\cite{HarOu2002}.
+
+% feeling that one's work is needed and cherished (more extrinsic, but to feel needed --> relatedness to others)
+There were also a couple of Freifunk activists who confessed that they were moved by the feeling that their work was useful and cherished by others.
+The positive feedback they'd received from people using the open network (among others many students and refugees) inspired them to continue their engagement in the project.
+
+%\subsection{External Motivation: Satisfying (personal) needs}
+\textbf{Extrinsic Motivation: satisfying (personal) needs}
+%code/result needed by employer or self
+
+%initial motivation: personal need for fast internet(before) vs political ideas (now)
+The initial motivations for joining the project for the different generations Freifunkers become visible:
+for people who joined before 2008 personal need was relevant indeed---one of their main concerns was lack of fast Internet connections in their area of living.
+In contrast, those who started contributing after that were primarily motivated by interest in the technical aspects of the project or its political aspirations.
+Although none of the recently joined activists mentioned personal need as a driving force,
+some of them stated that it was important for them to use the project as a means to connect others to the Internet or share their existing connections with people who needed it.
+Several interviewees explained their participation in campaigns to supply refugee shelters throughout Germany with Internet connections was amongst their (primary) motivations to engage in Freifunk.
+One participant asserted that this factor had actually brought new communities into being.
+
+% compare to foss: there are also people who started to contribute to a project because of a personal need (``I needed feature XY'')
+We note that except in the beginnings of the project's existence satisfying a personal need,
+a factor reported to be moderately relevant for FLOSS developers~\cite{LakWo2005},
+really isn't an issue for Freifunk activists.
+Engaging in the project to meet the needs of others seem to be more relevant for members of both communities (FLOSS and Freifunk).
+However, the FLOSS investigators usually mean by that developing a feature in a software the interviewees needed for their job/which was required by their employer~\cite{LakWo2005}, i.e.\ they received some kind of an external reward for their work.
+Freifunkers, on the other hand, hardly draw any personal benefits from connecting others to the Internet or sharing their private Internet connections.
+
+
+%The possible motivations were summarised by one of the participants in the following manner: ``there are the ego people and there are the altruists''.
+
+%\subsection{Extrinsic Motivation: expectance of a future reward}
+\textbf{Extrinsic Motivation: expectation of a future reward}
+%  polish skills,
+%  networking/self-marketing
+%  selling product
+
+According to Ryan and Deci, this category is the most externally driven one along the motivation continuum~\cite{RyDe2000}.
+The suggested future reward may denote direct monetary benefit or the indirect possibility for such contained in the motives of improving one's (technical) skills, self-marketing and establishing contacts.
+
+%compare to foss! there should be people who participate out of this motive
+On the whole, we can maintain that all these factors appear to be fairly important for FLOSS developers.
+Ca.\ $41\%$ of the participants in the Lakhani-Wolf survey~\cite{LakWo2005} and $88\%$ of the interviewed by Hars and Ou~\cite{HarOu2002} confessed that they wanted to better their skills.
+Furthermore, Hars and Ou found that $16\%$ of their participants were paid directly to contribute to FLOSS projects, $14\%$ wanted to sell or were already selling related product(s) or service(s) and over one-third of them viewed their participation as an effective means of self-marketing~\cite{HarOu2002}.
+Lakhani and Wolf reported that $17.5\%$ of their interviewees wanted to enhance their professional status and approximately $40\%$ drew some monetary benefit from their work on the field~\cite{LakWo2005}.
+
+% monetary compensation (extrinsic)
+Interviewed Freifunkers, on the other hand, regarded these reasons mostly as a byproduct of their work and not as a primary source of motivation.
+None of the activists reported to engage in the Freifunk project because of a monetary compensation
+(although one participant mentioned they were considering offering Freifunk related services professionally, this was not amongst the person's primary motivations to engage in the project).
+%enhance technical knowledge/skills (extrinsic, but self-determined)
+Some declared that they wanted to polish their technical skills and acquire deeper understanding of the workings of (wifi mesh) networks (6 out of 16 people mentioned this), which is ``hardly possible to this extent in another project which one can do in private in one's spare time''.
+However, this was also not the main motive for them to be active in the Freifunk community.
+
+% better job opportunities/networking (extrinsic)
+Neither are networking or getting better job opportunities a driving force for the participants.
+Some of them talked of these as (useful) consequences of their engagement.
+However, they underlined that they had not joined the project in order to become visible for potential employers.
+
+\begin{savenotes}
+\begin{table}[h]
+%\centering %used for centering table
+  \begin{tabular}{| p{3.5cm} | p{3.5cm} | p{3.5cm} | p{3.5cm} |}
+    \hline
+    \textbf{Type of Motivation} & \textbf{Freifunk Community} & \textbf{Hars and Ou (2002)} & \textbf{Lakhani and Wolf (2005)}\\
+    \hline
+    intrinsic (enjoyment, interest) & 87.5\% (16)\footnote{The numbers in the brackets show the total number of participants in each survey. These should help the reader to keep in mind the quite different scales when comparing the results. The numbers for the Freifunk community combine the answers of the general and more specific interview parts.} & 79.7\% (79) & 44.9\% (684) \\
+    \hline
+    intrinsic (altruism) & n/a & 16.5\% & n/a \\
+    \hline
+    extrinsic: ideology & 87.5\% & n/a & 33.1\% \\
+    \hline
+    extrinsic: community identification & 50\% & 27.8\% & 83\% \\
+    \hline
+    extrinsic: expected approval & 12.5\% & 43\% & 11\% \\
+    \hline
+    extrinsic: satisfying (personal) needs & 12.5\%(personal) 37.5\%(other people's needs) & 38\% & 58.7\% \\
+    \hline
+    extrinsic: external reward (direct/indirect monetary benefit)& 6\% & 30\% & 40\% \\
+    \hline
+    extrinsic: external reward (improving technical skills)& 37.5\% & 88\% & 41.3\% \\
+    \hline
+    extrinsic: external reward (self-marketing)& 0\% & 36.7\% & 17.5\% \\
+    \hline
+  \end{tabular}
+  \caption{Types of motivation in the Freifunk and FLOSS communities.}
+\label{tab:motivation}
+\end{table}
+\end{savenotes}
+
+%-------------------
+%--bottom line
+%-------------------
+
+The author is still not quite sure how to measure altruism, something at least one of the FLOSS reference papers maintain they are doing~\cite{HarOu2002}, and a comparison is really difficult here due to the radically different methodologies and size of participants' samples.
+Nevertheless, the claim is ventured that altruism seems to play rather a secondary role for FLOSS developers whereas nowadays the prevailing reason for people to engage into the Freifunk project is their fascination with its ideology (and then its technology) rather than other, more extrinsic motives.
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSION
+%----------------------------------------------------------------------------------------
+\section{Conclusion}
+
+The present paper discussed some first impressions on the possible motivations which drive community network activists of the Germany based project Freifunk.
+Although the sample of interviewees was fairly small (16 people) and the employed methodology may lack some scientific thoroughness, some interesting patterns have emerged.
+%patterns
+Ideology was one of the primary motivations for the interviewed activists, despite the curious fact that several of them viewed the possibility of truly fulfilling their ideas as utopian.
+We observed idiosyncrasies in the motivations to join in the different generations Freifunkers:
+people who joined in the early days of the project were mostly driven by personal need, a factor which seems to play a rather minor role today.
+We also noted the tendency of people's motivations evolving over time,
+which together with the diversity of tasks which the Freifunk project comprises may play a crucial role for maintaining long-term contributors.
+Further investigations with improved methods and including a larger participants' sample from different community network projects would definitely be insightful, since every project has its own specific characteristics and priorities.
+
+%----------------------------------------------------------------------------------------
+%	AKNOWLEDGMENTS
+%----------------------------------------------------------------------------------------
+
+\section{Acknowledgments}
+I'd like to thank all Freifunk activists who dedicated a significant amount of their time to answering my questions.
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+\nocite{*}
+
+\newpage
+\bibliography{literature}
+\bibliographystyle{alpha}
+
+%----------------------------------------------------------------------------------------
+%	APPENDIX
+%----------------------------------------------------------------------------------------
+\newpage
+\input{X-Appendix}
+
+\end{document}
