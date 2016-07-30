@@ -1,5 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib as mpl
+
+mpl.rcParams['font.size'] = 14.0
 
 data = [7, 5, 1, 3]
 labels = ["2 years or less", "approx. 3 years", "4 years (2004-2008)", "more than 8 years"]
